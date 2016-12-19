@@ -1,0 +1,21 @@
+<uwsgi>
+    <socket>0.0.0.0:8111</socket>
+    <chdir>/home/docker/code/app/</chdir>
+    <module>hello</module>
+    <callable>app</callable>
+    <workers>10</workers>
+    <listen>100</listen>
+    <socket-timeout>2</socket-timeout>
+    <reload-mercy>300</reload-mercy>
+    <reload-interval>3</reload-interval>
+    <worker-reload-mercy>300</worker-reload-mercy>
+    <max-fd>65536</max-fd>
+    <logto>/home/docker/code/log/app.log</logto>
+    <log-maxsize>2147483647</log-maxsize>
+    <log-slow>500</log-slow>
+    <master/>
+    <lazy/>
+    <buffer-size>65536</buffer-size>
+    <post-buffering>65536</post-buffering>
+</uwsgi>
+
