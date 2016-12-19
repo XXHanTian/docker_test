@@ -15,5 +15,15 @@ def get_ip_address(ifname):
 ip = get_ip_address('eth0')
 
 def app(env, start_response):
+    if env.get("QUERY_STRING"):
+        s = env.get("QUERY_STRING")
+        i = s.split('=')[1]
+        i = int(i)
+    else:
+        i = 1000
+    res = 1
+    for x in range(i):
+        res = res * x
+        
     start_response('200 OK', [('Content-Type','text/html')])
-    return [b"Hello World: {}".format(ip)]
+    return [b"Hello World: {} and {}".format(ip, res)]
